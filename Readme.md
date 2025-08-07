@@ -10,7 +10,7 @@ A simple yet powerful autoclicker application built with Python, featuring a mod
 
 * **Modern GUI:** A clean and intuitive user interface built with CustomTkinter for a contemporary look and feel.
 
-* **Global Hotkey:** Start and stop the autoclicker using a global hotkey ('S' by default) even when the application window is not in focus.
+* **Global Hotkey:** Start and stop the autoclicker using a global hotkey ('²' by default) even when the application window is not in focus.
 
 * **Executable Ready:** Easily package the application into a standalone executable (`.exe`) using PyInstaller.
 
