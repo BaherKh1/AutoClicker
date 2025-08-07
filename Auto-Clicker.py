@@ -1,5 +1,6 @@
+import os
 import customtkinter as ctk
-from tkinter import messagebox
+from tkinter import PhotoImage, messagebox
 from pynput.mouse import Button, Controller
 from pynput import keyboard
 import time
@@ -99,8 +100,30 @@ def on_closing():
 
 root = ctk.CTk()
 root.title("Autoclicker")
-root.geometry("400x380") 
+root.geometry("480x380") 
 root.resizable(False, False) 
+
+
+
+icon_path_ico = "Mouse.ico"
+if os.path.exists(icon_path_ico):
+    try:
+        root.iconbitmap(icon_path_ico)
+    except ctk.TclError:
+        print(f"Warning: Could not load .ico icon from {icon_path_ico}. Ensure it's a valid .ico file.")
+else:
+    print(f"Info: .ico icon file not found at {icon_path_ico}. Trying .png...")
+    icon_path_png = "autoclicker_icon.png"
+    if os.path.exists(icon_path_png):
+        try:
+            icon_image = PhotoImage(file=icon_path_png)
+            root.iconphoto(True, icon_image)
+        except Exception as e:
+            print(f"Warning: Could not load .png icon from {icon_path_png}. Error: {e}. Ensure Pillow is installed if it's a complex PNG.")
+    else:
+        print(f"Warning: No icon file found at {icon_path_ico} or {icon_path_png}. Using default icon.")
+
+
 
 main_frame = ctk.CTkFrame(root, corner_radius=15)
 main_frame.pack(pady=25, padx=25, fill="both", expand=True)
